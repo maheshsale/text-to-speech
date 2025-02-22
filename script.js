@@ -12,6 +12,10 @@ window.speechSynthesis.onvoiceschanged = () => {
       voices.forEach((voice, i) => (voiceSelect.options[i] = new Option(voice.name, i)))
 }
 
+voiceSelect.addEventListener("change", () => {
+      speech.voice = voices[voiceSelect.value]
+})
+
 // Code for Text to Speech
 document.querySelector('button').addEventListener("click", () => {
       speech.text = document.querySelector("textarea").value
